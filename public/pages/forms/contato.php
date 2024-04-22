@@ -2,6 +2,12 @@
 
 require "../../../bootstrap.php";
 
+if (isEmpty()) {
+    flash('message', 'Preencha todos os campos do formulário');
+
+    return redirect('contato');
+}
+
 $validate = validate([
     'name' => 's',
     'email' => 'e',
@@ -9,4 +15,4 @@ $validate = validate([
     'message' => 's',
 ]);
 
-dd($validate->name);
+dd($validate);
